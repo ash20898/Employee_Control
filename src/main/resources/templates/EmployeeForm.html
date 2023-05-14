@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>New Employee</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+          integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+</head>
+<body>
+<div class="container">
+<!--<form action="#"  th:action="@{/saveEmployee}" th:object="${employee}" method="post">-->
+<!--    <table>-->
+<!--        <tr>-->
+<!--            <td>Employee Code : </td>-->
+<!--            <td>-->
+<!--                <input-->
+<!--                    type="text"-->
+<!--                    th:field="*{employeeCode}"-->
+<!--                    placeholder="Code"-->
+<!--                    class="form-control mb-4 col-4"/>-->
+<!--            </td>-->
+<!--            <td th:if="${#fields.hasErrors('employeeCode')}" th:errors="*{employeeCode}"></td>-->
+<!--        </tr>-->
+
+<!--        <tr>-->
+<!--            <td><button type="submit" class="btn btn-info col-4">Submit</button></td>-->
+<!--            <td><button type="Button" class="btn btn-info col-4">Cancel</button></td>-->
+<!--        </tr>-->
+<!--    </table>-->
+<!--</form>-->
+
+    <form th:action="@{/saveEmployee}" th:object="${employee}" method="post">
+        <input type="hidden" th:field="*{employeeId}">
+        <label for="employeeCode">Employee Code</label>
+        <input type="text" th:field="*{employeeCode}"
+               placeholder="Code" name="employeeCode" id="employeeCode" class="form-control mb-4 col-4">
+        <p th:if="${#fields.hasErrors('employeeCode')}" th:errors="*{employeeCode}"></p>
+        <hr>
+        <button type="submit" class="btn btn-info col-4">Save</button>
+        <button type="button" class="btn btn-info col-4">Cancel</button>
+    </form>
+
+</div>
+</body>
+</html>
